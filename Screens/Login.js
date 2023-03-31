@@ -19,14 +19,21 @@ export default function Login() {
     }
 
     const addInPWD = (newTXT, isBackspace = false) => {
+        if (password.length < 5) {
+            if (isBackspace) {
+                const setPWD = password.slice(0, -1);
+                setpassword(setPWD);
+            } else {
+                const entered = String(newTXT);
+                const setPWD = `${password}${entered}`;
+                setpassword(setPWD);
+            }
+        }
         if (isBackspace) {
             const setPWD = password.slice(0, -1);
             setpassword(setPWD);
-        } else {
-            const entered = String(newTXT);
-            const setPWD = `${password}${entered}`;
-            setpassword(setPWD);
-        }
+        } 
+
     }
 
     useEffect(() => {
@@ -42,7 +49,7 @@ export default function Login() {
         }}>
             <View style={styles.Logo_div}><Text style={styles.sada}>Sada</Text><Text style={styles.pay}>Pay</Text></View>
             <View>
-                <TextInput placeholder='abc' style={styles.input} value={password} onChangeText={handleInputChange} />
+                <TextInput placeholder='abc' style={styles.input} value={password} onChangeText={handleInputChange} maxLength={5} />
                 <View style={styles.hidden}>
                     {iconsArray.map((iconName, index) => (
                         <Ionicons key={index} name={iconName} size={40} />
@@ -126,7 +133,7 @@ const styles = StyleSheet.create({
     hidden: {
         flexDirection: 'row',
         gap: 5,
-        marginBottom: 80
+        marginBottom: 60
     },
     forgotPin: {
         fontSize: 20,
