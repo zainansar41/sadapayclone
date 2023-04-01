@@ -40,7 +40,7 @@ export default function Login({navigation}) {
             setpassword('');
             console.log("Password is: ", password);
             if (password === '12345') {
-                navigation.navigate('Home')
+                navigation.navigate('Tab')
             }
             else{
                 Alert.alert('Wrong Password')

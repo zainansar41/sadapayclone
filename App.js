@@ -5,12 +5,12 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
 
-const Tab = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();
 
 
 import Login from './Screens/Login';
-import Home from './Screens/Home';
+
+import Tabbar from './Tabbar';
 
 export default function App() {
   return (
@@ -18,8 +18,7 @@ export default function App() {
     <NavigationContainer>
       <Stack.Navigator>
         <Stack.Screen name="Login" component={Login} options={{ headerShown: false }} />
-        <Stack.Screen name="Home" component={Home} options={{ headerShown: false }} />
-
+        <Stack.Screen name="Tab" component={Tabbar} options={{ headerShown: false }} />
       </Stack.Navigator>
     </NavigationContainer>
     
