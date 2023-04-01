@@ -1,9 +1,8 @@
-import { View, Text, TextInput, TouchableWithoutFeedback, ScrollView, Dimensions, StyleSheet, TouchableOpacity, Alert } from 'react-native'
+import { View, Text, TextInput, ScrollView, Dimensions, StyleSheet, TouchableOpacity, Alert } from 'react-native'
 import React, { useEffect, useState } from 'react'
 
 import Ionicons from "react-native-vector-icons/Ionicons";
-import Icon from 'react-native-vector-icons/FontAwesome'
-//<Icon name="fa-solid fa-horizontal-rule" />
+
 export default function Login({navigation}) {
     const [password, setpassword] = useState("");
 

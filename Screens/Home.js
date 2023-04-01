@@ -4,17 +4,19 @@ import React from 'react'
 import mastercard from '../assets/mastercard.png'
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
+import BalanceDiv from '../Components/BalanceDiv';
+import Loadmoney from '../Components/Loadmoney';
+import Request from '../Components/Request';
+
 
 export default function Home() {
     return (
         <ScrollView>
             <View style={styles.upper_div}>
-                <View style={styles.balance_div}>
-
-                </View>
+                <BalanceDiv />
                 <View style={styles.second_div}>
-                    <View style={styles.load_money}></View>
-                    <View style={styles.request}></View>
+                    <Loadmoney />
+                    <Request />
                 </View>
             </View>
             <View></View>
@@ -33,43 +35,11 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         gap: 20
     },
-    balance_div: {
-        width: Dimensions.get('window').width * 0.50,
-        height: Dimensions.get('window').height * 0.35,
-        backgroundColor: '#1F8A70',
-        borderRadius: 20,
-        elevation: -10,
-        shadowColor: '#A9A9A9', // light grey shadow
-        shadowOffset: { width: 0, height: 0 },
-        shadowOpacity: 0.5,
-        shadowRadius: 5,
-    },
     second_div: {
         height: Dimensions.get('window').height * 0.4,
         width: Dimensions.get('window').width * .40,
         justifyContent: 'space-evenly',
         alignItems: 'center',
     },
-    load_money: {
-        width: Dimensions.get('window').width * 0.40,
-        height: Dimensions.get('window').height * 0.16,
-        backgroundColor: '#1C82AD',
-        
-        borderRadius: 20,
-        shadowColor: '#A9A9A9', // light grey shadow
-        shadowOffset: { width: 0, height: 0 },
-        shadowOpacity: 0.5,
-        shadowRadius: 5,
-    },
-    request: {
-        width: Dimensions.get('window').width * 0.40,
-        height: Dimensions.get('window').height * 0.16,
-        backgroundColor: '#CE5959',
-        gap: 20,
-        borderRadius: 20,
-        shadowColor: '#A9A9A9', // light grey shadow
-        shadowOffset: { width: 0, height: 0 },
-        shadowOpacity: 0.5,
-        shadowRadius: 5,
-    }
+
 })
