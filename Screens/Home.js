@@ -1,4 +1,4 @@
-import { View, Text, ScrollView, TouchableOpacity, StyleSheet, Dimensions } from 'react-native'
+import { View, Text, ScrollView, TouchableOpacity, StyleSheet, Dimensions, SectionList } from 'react-native'
 import React from 'react'
 
 import mastercard from '../assets/mastercard.png'
@@ -8,10 +8,12 @@ import BalanceDiv from '../Components/BalanceDiv';
 import Loadmoney from '../Components/Loadmoney';
 import Request from '../Components/Request';
 
+import DATA from '../Help/DataList';
+
 
 export default function Home() {
     return (
-        <ScrollView>
+        <View>
             <View style={styles.upper_div}>
                 <BalanceDiv />
                 <View style={styles.second_div}>
@@ -20,7 +22,30 @@ export default function Home() {
                 </View>
             </View>
             <View></View>
-        </ScrollView>
+
+            <SectionList
+                    sections={DATA}
+                    // horizontal
+                    renderSectionHeader={({ section: { title } }) => (
+                        <Text style={{ fontWeight: 'bold', marginTop: 50, fontSize: 25, marginBottom: 40 }}>{title}</Text>
+                    )}
+                    keyExtractor={item => item.key}
+                    renderItem={({ item }) =>
+                        // <TouchableOpacity style={[styles.card, { backgroundColor: pizzaclr[item.key] ? "red" : "lightgrey" }]} onPress={() => {
+                        //     setpizzaclr(prevState => {
+                        //         const newState = [...prevState];
+                        //         newState[item.key] = !newState[item.key];
+                        //         return newState;
+                        //     });
+                        // }}>
+                        //     <Text style={styles.card_text}>{item.title}</Text>
+
+                        // </TouchableOpacity>
+                        <Text>{item.name}</Text>
+                    }
+                />
+
+        </View>
     )
 }
 
