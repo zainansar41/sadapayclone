@@ -7,13 +7,15 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 import BalanceDiv from '../Components/BalanceDiv';
 import Loadmoney from '../Components/Loadmoney';
 import Request from '../Components/Request';
+import TransactionDiv from '../Components/TransactionDiv';
 
 import DATA from '../Help/DataList';
 
 
+
 export default function Home() {
     return (
-        <View>
+        <ScrollView>
             <View style={styles.upper_div}>
                 <BalanceDiv />
                 <View style={styles.second_div}>
@@ -25,27 +27,18 @@ export default function Home() {
 
             <SectionList
                     sections={DATA}
-                    // horizontal
+                    
+                    style={styles.Trans_list}
                     renderSectionHeader={({ section: { title } }) => (
                         <Text style={{ fontWeight: 'bold', marginTop: 50, fontSize: 25, marginBottom: 40 }}>{title}</Text>
                     )}
                     keyExtractor={item => item.key}
                     renderItem={({ item }) =>
-                        // <TouchableOpacity style={[styles.card, { backgroundColor: pizzaclr[item.key] ? "red" : "lightgrey" }]} onPress={() => {
-                        //     setpizzaclr(prevState => {
-                        //         const newState = [...prevState];
-                        //         newState[item.key] = !newState[item.key];
-                        //         return newState;
-                        //     });
-                        // }}>
-                        //     <Text style={styles.card_text}>{item.title}</Text>
-
-                        // </TouchableOpacity>
-                        <Text>{item.name}</Text>
+                        <TransactionDiv item={item} />
                     }
                 />
 
-        </View>
+        </ScrollView>
     )
 }
 
@@ -66,5 +59,11 @@ const styles = StyleSheet.create({
         justifyContent: 'space-evenly',
         alignItems: 'center',
     },
-
+    Trans_list:{
+        backgroundColor:'#fff',
+        marginTop:40,
+        borderTopLeftRadius:40,
+        borderTopRightRadius:40,
+        paddingLeft:20,
+    }
 })

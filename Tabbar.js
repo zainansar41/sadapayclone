@@ -8,6 +8,8 @@ import { Header } from 'react-native/Libraries/NewAppScreen';
 const Tab = createBottomTabNavigator();
 import Iocicons from 'react-native-vector-icons/Ionicons';
 
+import Payment from './Components/Payment';
+
 
 export default function Tabbar() {
     return (
@@ -29,7 +31,7 @@ export default function Tabbar() {
                 )
 
             }} />
-            <Tab.Screen name="payments" component={Home} options={{
+            <Tab.Screen name="payments" component={Payment} options={{
                 headerShown: false,
                 tabBarIcon: ({ focused }) => (
                     <View style={{
